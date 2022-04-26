@@ -1,0 +1,135 @@
+.app {
+    margin: 0 2rem;
+    display: flex;
+    flex-flow: column;
+    gap: 0.5rem;
+    background-color: var(--bck);
+    
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--txt);
+
+        .icon {
+            width: 20%;
+            font-size: 1.5rem;
+        }
+
+        .theme {
+            width: 60%;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: right;
+        }
+
+        .themeBtn {
+            width: 15%;
+
+            &:hover {
+                cursor: pointer;
+            }
+            
+            .themeBtn__container {
+                float: right;
+                width: 90%;
+                height: 20px;
+                border-radius: 10px;
+                padding: 3.75px 5px;
+                background-color: var(--frg);
+
+                .themeBtn__switch {
+                    width: 12.5px;
+                    height: 12.5px;
+                    border-radius: 50%;
+                    transition-duration: 0.25s;
+                    background-color: var(--acc);
+                }
+
+            }
+
+        }
+
+    }
+
+    .display {
+        padding: 0 1rem; 
+        min-height: 4.5rem;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        background-color: var(--frg);
+
+        > div::-webkit-scrollbar {
+            display: none;
+        }
+
+        > * {
+            width: 100%;
+            overflow-x: auto; 
+            text-align: right;
+            font-size: 2rem;
+            font-weight: 700; 
+        }
+
+    }
+
+    .keys {
+        padding: 1.2rem;
+        border-radius: 5px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        background-color: var(--frg);
+    
+        button {
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            height: 40px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &:active {
+                transform: translate(0, 4px);
+                box-shadow: none !important;
+            }
+            
+        }
+
+        .reset, .equal {
+            grid-column: span 2;
+        }
+
+        .del, .reset, .equal {
+            font-size: 1.25rem;
+        }
+    
+    }
+
+}
+
+@media screen and (min-width:1024px) {
+    .app {
+        width: 30%;
+        margin: 2rem auto;
+    }
+}
+
+// themes
+
+.theme_1 {
+    --bck: #3b4664;
+    --frg: #181f32;
+    --txt: #ffffff;
+    --btnBck: #eae3db;
+    --btnTxt: #000000;
+    --acc: #647299;
+    --acc2: #d13f30;
+}
