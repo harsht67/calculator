@@ -1,24 +1,30 @@
 .app {
-    margin: 0 2rem;
-    display: flex;
-    flex-flow: column;
-    gap: 0.5rem;
+    position: absolute;
+    inset: 0;
     background-color: var(--bck);
     
-    .header {
+    .calculator {
+        margin: 0 2rem;
+        display: flex;
+        flex-flow: column;
+        gap: 1rem;
+
+        .header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         color: var(--txt);
 
-        .icon {
+        .title {
             width: 20%;
-            font-size: 1.5rem;
+            font-size: 2rem;
+            font-weight: 600;
         }
 
         .theme {
             width: 60%;
             font-size: 0.75rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
             text-align: right;
@@ -44,22 +50,23 @@
                     height: 12.5px;
                     border-radius: 50%;
                     transition-duration: 0.25s;
-                    background-color: var(--acc);
+                    background-color: rgb(var(--acc2));
                 }
 
             }
 
         }
 
-    }
+        }
 
-    .display {
+        .display {
         padding: 0 1rem; 
         min-height: 4.5rem;
         border-radius: 5px;
         display: flex;
         align-items: center;
         background-color: var(--frg);
+        color: var(--displayTxt);
 
         > div::-webkit-scrollbar {
             display: none;
@@ -73,42 +80,59 @@
             font-weight: 700; 
         }
 
-    }
+        }
 
-    .keys {
-        padding: 1.2rem;
-        border-radius: 5px;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1rem;
-        background-color: var(--frg);
-    
-        button {
-            font-size: 1.5rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            height: 40px;
-            border: none;
-            outline: none;
+        .keys {
+            padding: 1.2rem;
             border-radius: 5px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            background-color: var(--frg);
 
-            &:hover {
-                cursor: pointer;
+            button {
+                font-size: 1.5rem;
+                font-weight: 600;
+                height: 40px;
+                border: none;
+                outline: none;
+                border-radius: 5px;
+                background-color: rgb(var(--btnBck));
+                color: var(--txt);
+                box-shadow: 0 4px rgba(var(--btnBck), 0.5);
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                &:active {
+                    transform: translate(0, 4px);
+                    box-shadow: none !important;
+                }
+                
             }
 
-            &:active {
-                transform: translate(0, 4px);
-                box-shadow: none !important;
+            .reset, .equal {
+                grid-column: span 2;
             }
-            
-        }
 
-        .reset, .equal {
-            grid-column: span 2;
-        }
+            .del, .reset, .equal {
+                font-size: 1.25rem;
+                text-transform: uppercase;
+            }
 
-        .del, .reset, .equal {
-            font-size: 1.25rem;
+            .reset, .del {
+                background-color: rgb(var(--acc));
+                color: var(--txt2);
+                box-shadow: 0 4px rgba(var(--acc), 0.5);
+            }
+
+            .equal {
+                background-color: rgb(var(--acc2));
+                color: var(--txt2);
+                box-shadow: 0 4px rgba(var(--acc2), 0.5);
+            }
+
         }
     
     }
@@ -117,19 +141,46 @@
 
 @media screen and (min-width:1024px) {
     .app {
-        width: 30%;
-        margin: 2rem auto;
+
+        .calculator {
+            width: 30%;
+            margin: 2rem auto;
+        }
+    
     }
 }
 
 // themes
 
 .theme_1 {
+    --bck: #cacaca;
+    --frg: #acacac;
+    --txt: #000000;
+    --txt2: #ffffff;
+    --displayTxt: #000000;
+    --btnBck: 214, 214, 214;
+    --acc: 0, 128, 128;
+    --acc2: 228, 71, 46;
+}
+
+.theme_2 {
     --bck: #3b4664;
     --frg: #181f32;
-    --txt: #ffffff;
-    --btnBck: #eae3db;
-    --btnTxt: #000000;
-    --acc: #647299;
-    --acc2: #d13f30;
+    --txt: #000000;
+    --txt2: #ffffff;
+    --displayTxt: #ffffff;
+    --btnBck: 256, 256, 256;
+    --acc: 49, 59, 92;
+    --acc2: 173, 38, 17;
+}
+
+.theme_3 {
+    --bck: #0c000f;
+    --frg: #1f0027;
+    --txt: #ffff00;
+    --txt2: #ffffff;
+    --displayTxt: #ffff00;
+    --btnBck: 59, 0, 73;
+    --acc: 100, 0, 100;
+    --acc2: 53, 182, 169;
 }
