@@ -2,7 +2,7 @@
 import './App.scss'
 
 // components
-import Key from './Key'
+import Key from './Key.js'
 
 import { useState } from 'react'
 
