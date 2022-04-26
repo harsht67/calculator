@@ -49,6 +49,7 @@
                     width: 12.5px;
                     height: 12.5px;
                     border-radius: 50%;
+                    transform: translateX(var(--x));
                     transition-duration: 0.25s;
                     background-color: rgb(var(--acc2));
                 }
@@ -153,6 +154,7 @@
 // themes
 
 .theme_1 {
+    --x: 0;
     --bck: #cacaca;
     --frg: #acacac;
     --txt: #000000;
@@ -164,6 +166,7 @@
 }
 
 .theme_2 {
+    --x: 15px;
     --bck: #3b4664;
     --frg: #181f32;
     --txt: #000000;
@@ -175,6 +178,7 @@
 }
 
 .theme_3 {
+    --x: 30px;
     --bck: #0c000f;
     --frg: #1f0027;
     --txt: #ffff00;
