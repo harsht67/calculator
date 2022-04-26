@@ -101,7 +101,7 @@ function App() {
   // calculate logic 
   const calcFunc = () => {
     let input2 = input
-    let ops = ['/', 'X', '+', '-']
+    let ops = ['/', 'x', '+', '-']
     typeof(input2[input2.length-1]) == "string" && input2.pop() 
 
     for(let op of ops){
@@ -112,7 +112,7 @@ function App() {
 
             if(input2[i] == op){ 
                 if (op == '/') {updatedStr[j-1] = input2[i-1]/input2[i+1]}
-                if (op == 'X') {updatedStr[j-1] = input2[i-1]*input2[i+1]} 
+                if (op == 'x') {updatedStr[j-1] = input2[i-1]*input2[i+1]} 
                 if (op == '+') {updatedStr[j-1] = input2[i-1]+input2[i+1]} 
                 if (op == '-') {updatedStr[j-1] = input2[i-1]-input2[i+1]}  
                 i+=2
